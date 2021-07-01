@@ -8,6 +8,10 @@
 	"engines": {
 		"vscode": "^1.57.0"
 	},
+	"extensionKind": [
+		"ui",
+		"workspace"
+	],
 	"categories": [
 		"Other"
 	],
@@ -29,7 +33,7 @@
 				"autoOpenPreviewPanel.openPreviewToSide": {
 					"type": "boolean",
 					"default": false,
-					"description": "Open the preview panel to the side instead of just in a new editor tab."
+					"description": "Open the preview panel to the side instead of in a new editor tab."
 				},
 				"autoOpenPreviewPanel.languages": {
 					"type": "string",
