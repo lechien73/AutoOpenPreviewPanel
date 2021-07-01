@@ -1,22 +1,33 @@
-
+/**
+ * Auto Open Preview Panel
+ * VS Code Extension
+ * Matt Rudge, July 2021
+ */
 import * as vscode from 'vscode';
-import { workspace, window, commands, ExtensionContext } from 'vscode';
 
-export function activate(context: ExtensionContext) {
+export function activate(context: vscode.ExtensionContext) {
 
 	let previewCommand: string;
 
+	/**
+	 * Refreshes the settings in case they've changed
+	 * @returns languages: array
+	 */
 	function refreshSettings() {
-		let settings = workspace.getConfiguration('autoOpenPreviewPanel');
+
+		let settings = vscode.workspace.getConfiguration('autoOpenPreviewPanel');
 		let langs: any = settings.get('languages');
 		let languages = langs.split(',');
 		previewCommand = settings.get('openPreviewToSide') ? 'showPreviewToSide' : 'showPreview';
 		return languages;
 	}
 
+	/**
+	 * Refreshes the preview panel when the editor changes
+	 */
 	function refreshPreview() {
 
-		let textEditor = window.activeTextEditor;
+		let textEditor = vscode.window.activeTextEditor;
 		if (textEditor) {
 			let languages = refreshSettings();
 			let doc = textEditor.document;
@@ -25,12 +36,17 @@ export function activate(context: ExtensionContext) {
 			}
 		}
 	}
+
+	/**
+	 * Opens the preview panel using the language and current preview command
+	 * @param lang a string containing the language ID
+	 */
 	function openPreview(lang: string) {
-		commands.executeCommand(`${lang}.${previewCommand}`)
+		vscode.commands.executeCommand(`${lang}.${previewCommand}`)
 			.then(() => { }, (e) => console.error(e));
 	}
 
-	if (window.activeTextEditor) {
+	if (vscode.window.activeTextEditor) {
 		refreshPreview();
 	} else {
 		vscode.window.onDidChangeActiveTextEditor(() => {
@@ -46,5 +62,4 @@ export function activate(context: ExtensionContext) {
 	});
 }
 
-// this method is called when your extension is deactivated
 export function deactivate() { }
