@@ -25,6 +25,10 @@ Initial release
 
 Added configuration features
 
+### 0.0.3
+
+Added icon, further code housekeeping
+
 ## Contributing
 
 Feel free to fork the repo and make a PR if you'd like to suggest changes.

@@ -3,7 +3,7 @@
 	"displayName": "Auto Open Preview Panel",
 	"description": "Opens a preview panel when markdown or asciidoc file is opened",
 	"icon": "images/AOPicon.png",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"publisher": "matt-rudge",
 	"repository": "https://github.com/lechien73/AutoOpenPreviewPanel",
 	"engines": {
