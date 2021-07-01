@@ -55,7 +55,7 @@ export function activate(context: vscode.ExtensionContext) {
 	}
 
 	vscode.workspace.onDidOpenTextDocument((doc) => {
-		let languages = refreshSettings()
+		let languages = refreshSettings();
 		if (doc && languages.includes(doc.languageId)) {
 			openPreview(doc.languageId);
 		}
