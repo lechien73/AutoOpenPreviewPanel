@@ -29,6 +29,10 @@ Added configuration features
 
 Added icon, further code housekeeping
 
+### 0.0.4
+
+Added license
+
 ## Contributing
 
 Feel free to fork the repo and make a PR if you'd like to suggest changes.
