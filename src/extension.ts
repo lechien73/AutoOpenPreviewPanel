@@ -8,6 +8,7 @@ import * as vscode from 'vscode';
 export function activate(context: vscode.ExtensionContext) {
 
 	let previewCommand: string;
+	let extensionEnabled: boolean;
 
 	/**
 	 * Refreshes the settings in case they've changed
@@ -18,6 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
 		let settings = vscode.workspace.getConfiguration('autoOpenPreviewPanel');
 		let langs: any = settings.get('languages');
 		let languages = langs.split(',');
+		extensionEnabled = settings.get('extensionEnabled') || true;
 		previewCommand = settings.get('openPreviewToSide') ? 'showPreviewToSide' : 'showPreview';
 		return languages;
 	}
@@ -31,7 +33,7 @@ export function activate(context: vscode.ExtensionContext) {
 		if (textEditor) {
 			let languages = refreshSettings();
 			let doc = textEditor.document;
-			if (doc && languages.includes(doc.languageId)) {
+			if (extensionEnabled && doc && languages.includes(doc.languageId)) {
 				openPreview(doc.languageId);
 			}
 		}
@@ -56,7 +58,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	vscode.workspace.onDidOpenTextDocument((doc) => {
 		let languages = refreshSettings();
-		if (doc && languages.includes(doc.languageId)) {
+		if (extensionEnabled && doc && languages.includes(doc.languageId)) {
 			openPreview(doc.languageId);
 		}
 	});

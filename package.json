@@ -3,7 +3,7 @@
 	"displayName": "Auto Open Preview Panel",
 	"description": "Opens a preview panel when markdown or asciidoc file is opened",
 	"icon": "images/AOPicon.png",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"publisher": "matt-rudge",
 	"repository": "https://github.com/lechien73/AutoOpenPreviewPanel",
 	"engines": {
@@ -31,6 +31,11 @@
 		"configuration": {
 			"title": "Auto Open Preview Panel",
 			"properties": {
+				"autoOpenPreviewPanel.extensionEnabled": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enables or disables the extension"
+				},
 				"autoOpenPreviewPanel.openPreviewToSide": {
 					"type": "boolean",
 					"default": false,

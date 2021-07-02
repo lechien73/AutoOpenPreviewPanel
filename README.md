@@ -33,9 +33,15 @@ Added icon, further code housekeeping
 
 Added license
 
+### 0.0.5
+
+Added further configuration options
+
 ## Contributing
 
-Feel free to fork the repo and make a PR if you'd like to suggest changes.
+Feel free to fork the repo and make a PR if you'd like to suggest changes. Failing that, you could always...
+
+<a href="https://www.buymeacoffee.com/mattrudge" target="_blank"><img src="https://mattrudge.net/images/bmac.png" alt="Buy Matt A Coffee"></a>
 
 -----
 Matt Rudge<br/>
