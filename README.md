@@ -37,6 +37,10 @@ Added license
 
 Added further configuration options
 
+### 0.0.6
+
+Prevent losing control of preview panel
+
 ## Contributing
 
 Feel free to fork the repo and make a PR if you'd like to suggest changes. Failing that, you could always...

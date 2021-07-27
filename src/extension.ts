@@ -9,6 +9,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	let previewCommand: string;
 	let extensionEnabled: boolean;
+	let didAlreadyOpen = false;
 
 	/**
 	 * Refreshes the settings in case they've changed
@@ -30,12 +31,13 @@ export function activate(context: vscode.ExtensionContext) {
 	function refreshPreview() {
 
 		let textEditor = vscode.window.activeTextEditor;
-		if (textEditor) {
+		if (textEditor && !didAlreadyOpen) {
 			let languages = refreshSettings();
 			let doc = textEditor.document;
 			if (extensionEnabled && doc && languages.includes(doc.languageId)) {
 				openPreview(doc.languageId);
 			}
+			didAlreadyOpen = true;
 		}
 	}
 
