@@ -3,7 +3,7 @@
 	"displayName": "Auto Open Preview Panel",
 	"description": "Opens a preview panel when markdown or asciidoc file is opened",
 	"icon": "images/AOPicon.png",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"publisher": "matt-rudge",
 	"repository": "https://github.com/lechien73/AutoOpenPreviewPanel",
 	"engines": {
@@ -24,7 +24,8 @@
 	],
 	"activationEvents": [
 		"onLanguage:markdown",
-		"onLanguage:asciidoc"
+		"onLanguage:asciidoc",
+		"onLanguage:restructuredtext"
 	],
 	"main": "./out/extension.js",
 	"contributes": {

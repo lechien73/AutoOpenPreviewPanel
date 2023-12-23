@@ -4,7 +4,7 @@
 
 A VSCode Extension to automatically open a preview panel when a markdown document is opened. The extension supports opening the preview in a new editor or to the side.
 
-It can be configured to work with `markdown` and `asciidoc` files.
+It can be configured to work with `markdown`, `asciidoc` and `restructuredtext`files.
 
 It's published in the [VS Code Marketplace here](https://marketplace.visualstudio.com/items?itemName=matt-rudge.auto-open-preview-panel)
 
@@ -13,7 +13,7 @@ It's published in the [VS Code Marketplace here](https://marketplace.visualstudi
 This extension contributes the following settings:
 
 * `autoOpenPreviewPanel.openPreviewToTheSide`: Enables or disables side opening
-* `autoOpenPreviewPanel.languages`: Comma-separated list of langauges. Allowed options are `markdown` or `asciidoc`
+* `autoOpenPreviewPanel.languages`: Comma-separated list of languages. Allowed options are `markdown`, `asciidoc` or `restructuredtext`
 
 ## Release Notes
 
@@ -40,6 +40,10 @@ Added further configuration options
 ### 0.0.6
 
 Prevent losing control of preview panel
+
+### 0.0.7
+
+Added support for reStructuredText language
 
 ## Contributing
 
