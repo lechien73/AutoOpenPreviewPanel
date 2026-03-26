@@ -1,7 +1,7 @@
 /**
  * Auto Open Preview Panel
  * VS Code Extension
- * Matt Rudge, July 2021
+ * Matt Rudge, July 2021, updated March 2026
  */
 import * as vscode from 'vscode';
 
@@ -13,16 +13,12 @@ export function activate(context: vscode.ExtensionContext) {
 
 	/**
 	 * Refreshes the settings in case they've changed
-	 * @returns languages: array
 	 */
 	function refreshSettings() {
 
 		let settings = vscode.workspace.getConfiguration('autoOpenPreviewPanel');
-		let langs: any = settings.get('languages');
-		let languages = langs.split(',');
 		extensionEnabled = settings.get('extensionEnabled') || true;
 		previewCommand = settings.get('openPreviewToSide') ? 'showPreviewToSide' : 'showPreview';
-		return languages;
 	}
 
 	/**
@@ -32,9 +28,9 @@ export function activate(context: vscode.ExtensionContext) {
 
 		let textEditor = vscode.window.activeTextEditor;
 		if (textEditor && !didAlreadyOpen) {
-			let languages = refreshSettings();
+			refreshSettings();
 			let doc = textEditor.document;
-			if (extensionEnabled && doc && languages.includes(doc.languageId)) {
+			if (extensionEnabled && doc && doc.languageId === 'markdown') {
 				openPreview(doc.languageId);
 			}
 			didAlreadyOpen = true;
@@ -59,8 +55,9 @@ export function activate(context: vscode.ExtensionContext) {
 	}
 
 	vscode.workspace.onDidOpenTextDocument((doc) => {
-		let languages = refreshSettings();
-		if (extensionEnabled && doc && languages.includes(doc.languageId)) {
+		refreshSettings();
+		const isVisible = vscode.window.visibleTextEditors.some(editor => editor.document === doc);
+		if (extensionEnabled && doc && doc.languageId === 'markdown' && isVisible) {
 			openPreview(doc.languageId);
 		}
 	});

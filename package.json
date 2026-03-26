@@ -3,7 +3,7 @@
 	"displayName": "Auto Open Preview Panel",
 	"description": "Opens a preview panel when markdown or asciidoc file is opened",
 	"icon": "images/AOPicon.png",
-	"version": "0.0.7",
+	"version": "1.0.0",
 	"publisher": "matt-rudge",
 	"repository": "https://github.com/lechien73/AutoOpenPreviewPanel",
 	"engines": {
@@ -23,9 +23,7 @@
 		"md files"
 	],
 	"activationEvents": [
-		"onLanguage:markdown",
-		"onLanguage:asciidoc",
-		"onLanguage:restructuredtext"
+		"onLanguage:markdown"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -42,11 +40,7 @@
 					"default": false,
 					"description": "Open the preview panel to the side instead of in a new editor tab."
 				},
-				"autoOpenPreviewPanel.languages": {
-					"type": "string",
-					"default": "markdown",
-					"description": "Supported preview languages. Comma-separated list, e.g: markdown,asciidoc"
-				}
+
 			}
 		}
 	},
